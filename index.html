@@ -12,8 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        amberDark: '#1a1408',
-                        polarGlass: 'rgba(30, 24, 12, 0.88)',
+                        navyDark: '#0b1329',
+                        polarGlass: 'rgba(15, 23, 42, 0.90)',
                     }
                 }
             }
@@ -30,19 +30,19 @@
         
         body {
             font-family: 'Zen Maru Gothic', 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #1f180a 0%, #3d2d10 50%, #291e0a 100%);
-            color: #fffbeb;
+            background: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #1e293b 100%);
+            color: #f8fafc;
             user-select: none;
             touch-action: manipulation;
             min-height: 100vh;
         }
 
         .glass-panel {
-            background: rgba(30, 24, 12, 0.88);
+            background: rgba(15, 23, 42, 0.90);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(245, 158, 11, 0.35);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
 
         @keyframes fadeInScale {
@@ -54,28 +54,28 @@
         }
     </style>
 </head>
-<body class="min-h-screen text-amber-50 flex flex-col justify-between overflow-x-hidden">
+<body class="min-h-screen text-slate-100 flex flex-col justify-between overflow-x-hidden">
 
     <!-- Header / Navbar -->
-    <header class="w-full p-4 md:p-5 glass-panel sticky top-0 z-40 border-b border-amber-500/30 flex justify-between items-center">
+    <header class="w-full p-4 md:p-5 glass-panel sticky top-0 z-40 border-b border-sky-500/30 flex justify-between items-center">
         <div class="flex items-center space-x-3 cursor-pointer" onclick="location.reload()">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-500/30 border border-amber-200/40">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-400 to-blue-600 flex items-center justify-center shadow-lg shadow-sky-500/30 border border-sky-200/40">
                 <span class="text-3xl">🏷️</span>
             </div>
             <div>
-                <h1 class="font-black text-2xl md:text-3xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-200 to-orange-400">
+                <h1 class="font-black text-2xl md:text-3xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-blue-200 to-indigo-300">
                     メイメイ Online
                 </h1>
-                <p class="text-xs text-amber-300/80 font-mono tracking-widest uppercase">Meimei - Katakana Naming Game</p>
+                <p class="text-xs text-sky-300/80 font-mono tracking-widest uppercase">Meimei - Katakana Naming Game</p>
             </div>
         </div>
 
         <div id="headerInfo" class="hidden flex items-center space-x-3">
-            <div id="roomBadge" class="bg-amber-950/90 border border-amber-500/40 px-4 py-2 rounded-full text-sm font-mono font-bold text-amber-300 flex items-center gap-2 cursor-pointer hover:bg-amber-900 transition" onclick="copyRoomCode()">
+            <div id="roomBadge" class="bg-slate-950 border border-sky-500/40 px-4 py-2 rounded-full text-sm font-mono font-bold text-sky-300 flex items-center gap-2 cursor-pointer hover:bg-slate-900 transition" onclick="copyRoomCode()">
                 <i class="fa-regular fa-copy"></i>
                 <span id="displayRoomCode">----</span>
             </div>
-            <button id="soundToggleBtn" onclick="toggleSound()" class="w-11 h-11 rounded-full bg-amber-950/90 hover:bg-amber-900 border border-amber-500/40 flex items-center justify-center text-amber-300 text-lg transition">
+            <button id="soundToggleBtn" onclick="toggleSound()" class="w-11 h-11 rounded-full bg-slate-950 hover:bg-slate-900 border border-sky-500/40 flex items-center justify-center text-sky-300 text-lg transition">
                 <i class="fa-solid fa-volume-high" id="soundIcon"></i>
             </button>
         </div>
@@ -87,49 +87,49 @@
         <!-- VIEW 1: LOBBY -->
         <div id="viewLobby" class="space-y-6 max-w-2xl mx-auto w-full">
             <div class="text-center space-y-3 my-2">
-                <div class="inline-block px-4 py-1.5 bg-amber-500/20 text-amber-300 rounded-full text-sm font-bold border border-amber-400/40 mb-1 shadow-lg backdrop-blur-md">
+                <div class="inline-block px-4 py-1.5 bg-sky-500/20 text-sky-300 rounded-full text-sm font-bold border border-sky-400/40 mb-1 shadow-lg backdrop-blur-md">
                     絶妙なカタカナ名をつけて一部の人だけに当てさせよう！ 🏷️
                 </div>
                 <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">メイメイ Online</h2>
-                <p class="text-amber-200/90 text-sm md:text-base max-w-lg mx-auto">
+                <p class="text-sky-200/90 text-sm md:text-base max-w-lg mx-auto">
                     架空の物事にオリジナルの【カタカナ名】をつけるクイズゲーム！<br>「誰か1人だけに伝わる」絶妙なネーミングで高得点を狙おう！
                 </p>
             </div>
 
             <div class="glass-panel rounded-3xl p-6 shadow-2xl space-y-3">
-                <label class="block text-sm font-bold uppercase tracking-wider text-amber-200">プレイヤー名（ニックネーム）</label>
+                <label class="block text-sm font-bold uppercase tracking-wider text-sky-200">プレイヤー名（ニックネーム）</label>
                 <input type="text" id="playerNameInput" maxlength="10" placeholder="名前を入力してください" 
-                    class="w-full bg-amber-950/90 border border-amber-500/50 rounded-2xl px-5 py-4 text-amber-100 focus:outline-none focus:border-amber-300 transition font-bold text-xl placeholder-amber-700">
+                    class="w-full bg-slate-950 border border-sky-500/50 rounded-2xl px-5 py-4 text-sky-100 focus:outline-none focus:border-sky-300 transition font-bold text-xl placeholder-slate-600">
             </div>
 
             <div class="glass-panel rounded-3xl p-6 shadow-2xl space-y-3">
-                <label class="block text-sm font-bold uppercase tracking-wider text-amber-200">合言葉（部屋のパスワード）</label>
+                <label class="block text-sm font-bold uppercase tracking-wider text-sky-200">合言葉（部屋のパスワード）</label>
                 <input type="text" id="joinRoomCodeInput" placeholder="お好きな合言葉 (例: meimei1)" 
-                    class="w-full bg-amber-950/90 border border-amber-500/50 rounded-2xl px-5 py-4 text-amber-100 font-mono tracking-widest text-xl focus:outline-none focus:border-amber-300 transition placeholder-amber-700">
-                <p class="text-xs text-amber-300/70">※全員が同じ合言葉を入力してください (3〜8人推奨)。</p>
+                    class="w-full bg-slate-950 border border-sky-500/50 rounded-2xl px-5 py-4 text-sky-100 font-mono tracking-widest text-xl focus:outline-none focus:border-sky-300 transition placeholder-slate-600">
+                <p class="text-xs text-sky-300/70">※全員が同じ合言葉を入力してください (3〜8人推奨)。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="glass-panel rounded-3xl p-6 shadow-2xl hover:border-amber-400/80 transition flex flex-col justify-between space-y-4">
+                <div class="glass-panel rounded-3xl p-6 shadow-2xl hover:border-sky-400/80 transition flex flex-col justify-between space-y-4">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-2xl mb-2 border border-amber-400/40">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-300 flex items-center justify-center text-2xl mb-2 border border-sky-400/40">
                             <i class="fa-solid fa-plus"></i>
                         </div>
                         <h3 class="font-bold text-xl text-white">部屋を作る (ホスト)</h3>
                     </div>
-                    <button id="btnCreateRoom" class="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-amber-950 font-black text-lg py-4 rounded-2xl shadow-lg shadow-amber-500/30 transition transform active:scale-95">
+                    <button id="btnCreateRoom" class="w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 hover:from-sky-300 hover:to-indigo-500 text-white font-black text-lg py-4 rounded-2xl shadow-lg shadow-sky-500/30 transition transform active:scale-95">
                         部屋を作成
                     </button>
                 </div>
 
-                <div class="glass-panel rounded-3xl p-6 shadow-2xl hover:border-yellow-400/80 transition flex flex-col justify-between space-y-4">
+                <div class="glass-panel rounded-3xl p-6 shadow-2xl hover:border-blue-400/80 transition flex flex-col justify-between space-y-4">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 text-yellow-300 flex items-center justify-center text-2xl mb-2 border border-yellow-400/40">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-300 flex items-center justify-center text-2xl mb-2 border border-blue-400/40">
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </div>
                         <h3 class="font-bold text-xl text-white">部屋に入る (ゲスト)</h3>
                     </div>
-                    <button id="btnJoinRoom" class="w-full bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 hover:from-yellow-400 hover:to-amber-400 text-amber-950 font-black text-lg py-4 rounded-2xl shadow-lg shadow-yellow-500/30 transition transform active:scale-95">
+                    <button id="btnJoinRoom" class="w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-500 hover:from-blue-400 hover:to-sky-400 text-white font-black text-lg py-4 rounded-2xl shadow-lg shadow-blue-500/30 transition transform active:scale-95">
                         部屋に参加
                     </button>
                 </div>
@@ -139,32 +139,32 @@
         <!-- VIEW 2: WAITING LOBBY -->
         <div id="viewRoomLobby" class="hidden space-y-5 max-w-2xl mx-auto w-full">
             <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
-                <div class="flex justify-between items-center border-b border-amber-500/30 pb-4">
+                <div class="flex justify-between items-center border-b border-sky-500/30 pb-4">
                     <div>
-                        <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">GAME LOBBY</span>
+                        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">GAME LOBBY</span>
                         <h2 class="text-3xl font-black text-white flex items-center gap-2">
-                            合言葉: <span id="lobbyRoomCode" class="font-mono text-amber-300">----</span>
+                            合言葉: <span id="lobbyRoomCode" class="font-mono text-sky-300">----</span>
                         </h2>
                     </div>
-                    <button onclick="copyRoomCode()" class="bg-amber-950/80 hover:bg-amber-900 text-amber-300 text-sm font-bold px-4 py-2.5 rounded-2xl border border-amber-500/40 flex items-center gap-2 transition">
+                    <button onclick="copyRoomCode()" class="bg-slate-950 hover:bg-slate-900 text-sky-300 text-sm font-bold px-4 py-2.5 rounded-2xl border border-sky-500/40 flex items-center gap-2 transition">
                         <i class="fa-regular fa-copy"></i> コピー
                     </button>
                 </div>
 
                 <!-- ホスト専用：勝利条件＆ハズレ枚数設定 -->
-                <div id="hostSettingsBox" class="hidden bg-amber-950/90 rounded-2xl p-4 border border-amber-500/40 space-y-4">
+                <div id="hostSettingsBox" class="hidden bg-slate-950 rounded-2xl p-4 border border-sky-500/40 space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider">勝利条件（目標獲得ポイント）</label>
-                            <select id="targetScoreSelect" onchange="updateTargetScoreSetting(this.value)" class="w-full bg-amber-900 border border-amber-500/50 rounded-xl px-4 py-2.5 text-amber-100 font-bold focus:outline-none">
+                            <label class="block text-xs font-bold text-sky-300 uppercase tracking-wider">勝利条件（目標獲得ポイント）</label>
+                            <select id="targetScoreSelect" onchange="updateTargetScoreSetting(this.value)" class="w-full bg-slate-900 border border-sky-500/50 rounded-xl px-4 py-2.5 text-sky-100 font-bold focus:outline-none">
                                 <option value="5">5点先取（サクッとプレイ）</option>
                                 <option value="10" selected>10点先取（標準ルール）</option>
                                 <option value="15">15点先取（じっくりプレイ）</option>
                             </select>
                         </div>
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider">ハズレカード（ダミー）枚数</label>
-                            <select id="dummyCountSelect" onchange="updateDummyCountSetting(this.value)" class="w-full bg-amber-900 border border-amber-500/50 rounded-xl px-4 py-2.5 text-amber-100 font-bold focus:outline-none">
+                            <label class="block text-xs font-bold text-sky-300 uppercase tracking-wider">ハズレカード（ダミー）枚数</label>
+                            <select id="dummyCountSelect" onchange="updateDummyCountSetting(this.value)" class="w-full bg-slate-900 border border-sky-500/50 rounded-xl px-4 py-2.5 text-sky-100 font-bold focus:outline-none">
                                 <option value="1">1枚（お題計2択）</option>
                                 <option value="2">2枚（お題計3択）</option>
                                 <option value="3" selected>3枚（お題計4択 / 公式推奨）</option>
@@ -173,24 +173,40 @@
                     </div>
                 </div>
 
-                <div class="bg-amber-950/70 rounded-2xl p-4 border border-amber-500/30 text-center text-sm text-amber-100 space-y-1">
-                    <div>得点ルール：<strong>「全員正解」</strong>や<strong>「全員不正解」</strong>は親・子ともに0点！</div>
-                    <div class="text-xs text-amber-300/80">正解者と不正解者が両方出た時のみ、正解者に1pt、親にハズレ人数分ptが入ります！</div>
+                <!-- 詳しいルール解説パネル -->
+                <div class="bg-slate-950/90 rounded-2xl p-5 border border-sky-500/40 space-y-3 text-left">
+                    <div class="flex items-center gap-2 text-sky-300 font-black text-sm border-b border-sky-500/30 pb-2">
+                        <i class="fa-solid fa-book-open"></i> 【メイメイ】の得点ルール解説
+                    </div>
+                    <div class="grid grid-cols-1 gap-2 text-xs text-sky-100">
+                        <div class="p-2.5 bg-slate-900/80 rounded-xl border border-sky-500/20">
+                            <span class="font-black text-sky-300">① 正解した解答者（子）</span>
+                            <p class="text-slate-300 mt-0.5">見事正解を選べた解答者には、それぞれ <strong class="text-sky-300">+1 pt</strong> が与えられます。</p>
+                        </div>
+                        <div class="p-2.5 bg-slate-900/80 rounded-xl border border-sky-500/20">
+                            <span class="font-black text-sky-300">② 名づけ親（出題者）</span>
+                            <p class="text-slate-300 mt-0.5"><strong class="text-sky-300">「ハズレ（不正解）を選んだ解答者の人数 × 1 pt」</strong> を獲得！1〜2人だけに正解させる絶妙なネーミングで高得点を狙おう！</p>
+                        </div>
+                        <div class="p-2.5 bg-slate-900/80 rounded-xl border border-amber-500/30 bg-amber-500/5">
+                            <span class="font-black text-amber-300">⚠️ 【全員正解】または【全員不正解】の場合</span>
+                            <p class="text-slate-300 mt-0.5">ネーミングが「分かりやすすぎた」場合や「難しすぎた」場合は失敗！<strong class="text-amber-300">全員 0 pt</strong>（親にも子にもポイントは入りません）となります。</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="space-y-3">
-                    <div class="flex justify-between items-center text-sm font-bold text-amber-200">
+                    <div class="flex justify-between items-center text-sm font-bold text-sky-200">
                         <span>参加プレイヤー (<span id="playerCount">0</span>名)</span>
-                        <span class="text-amber-400/80">※3人以上を推奨</span>
+                        <span class="text-sky-400/80">※3人以上を推奨</span>
                     </div>
                     <div id="playerList" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-60 overflow-y-auto pr-1"></div>
                 </div>
 
                 <div class="pt-2">
-                    <button id="startGameBtn" onclick="startGame()" class="hidden w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-amber-950 font-black text-xl py-5 rounded-2xl shadow-xl shadow-amber-500/30 transition transform active:scale-95">
+                    <button id="startGameBtn" onclick="startGame()" class="hidden w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 hover:from-sky-300 hover:to-indigo-500 text-white font-black text-xl py-5 rounded-2xl shadow-xl shadow-sky-500/30 transition transform active:scale-95">
                         ゲームを開始する 🚀
                     </button>
-                    <p id="waitingForHostMsg" class="text-center text-amber-300/80 text-sm py-2 font-medium animate-pulse">
+                    <p id="waitingForHostMsg" class="text-center text-sky-300/80 text-sm py-2 font-medium animate-pulse">
                         ホストが対戦を開始するのを待っています...
                     </p>
                 </div>
@@ -200,31 +216,31 @@
         <!-- VIEW 3: GAME PLAYING -->
         <div id="viewGame" class="hidden space-y-5 w-full max-w-4xl mx-auto">
             <!-- Header Info Status -->
-            <div class="glass-panel p-4 rounded-3xl border border-amber-500/30 space-y-3">
+            <div class="glass-panel p-4 rounded-3xl border border-sky-500/30 space-y-3">
                 <div class="flex flex-wrap justify-between items-center gap-4">
                     <div class="flex items-center space-x-4">
-                        <div class="bg-amber-500/20 text-amber-300 px-4 py-2 rounded-2xl border border-amber-400/50 text-sm font-mono font-bold shadow">
+                        <div class="bg-sky-500/20 text-sky-300 px-4 py-2 rounded-2xl border border-sky-400/50 text-sm font-mono font-bold shadow">
                             目標: <span id="targetScoreDisplay">10</span> pt
                         </div>
                         <div>
-                            <span class="text-xs text-amber-300/80 block uppercase font-bold">あなたの役職</span>
+                            <span class="text-xs text-sky-300/80 block uppercase font-bold">あなたの役職</span>
                             <span id="myRoleBadge" class="font-black text-lg text-white">----</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Scores Summary -->
-                <div class="border-t border-amber-500/30 pt-3">
-                    <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-2">現在の獲得スコア</div>
+                <div class="border-t border-sky-500/30 pt-3">
+                    <div class="text-[11px] font-bold text-sky-300 uppercase tracking-wider mb-2">現在の獲得スコア</div>
                     <div id="headerScoreList" class="flex flex-wrap gap-2.5"></div>
                 </div>
             </div>
 
             <!-- PHASE 1: 名づけフェーズ (親が名前を宣言) -->
-            <div id="phaseNamingBox" class="hidden glass-panel rounded-3xl p-6 text-center shadow-2xl border border-amber-500/40 bg-amber-950/80 space-y-5">
+            <div id="phaseNamingBox" class="hidden glass-panel rounded-3xl p-6 text-center shadow-2xl border border-sky-500/40 bg-slate-950/90 space-y-5">
                 <div class="flex justify-between items-center px-2">
-                    <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">PHASE 1: 命名タイム</span>
-                    <span id="currentPresenterBadge1" class="text-xs font-bold text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/40">
+                    <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">PHASE 1: 命名タイム</span>
+                    <span id="currentPresenterBadge1" class="text-xs font-bold text-sky-300 bg-sky-500/20 px-3 py-1 rounded-full border border-sky-400/40">
                         名づけ親: ---
                     </span>
                 </div>
@@ -232,21 +248,21 @@
                 <!-- 名づけ親の画面 -->
                 <div id="presenterNamingControls" class="hidden space-y-4">
                     <div class="space-y-2">
-                        <span class="text-xs font-bold text-amber-300 uppercase tracking-wider block">あなただけに見えているお題</span>
-                        <h2 id="presenterTopicDisplay" class="text-3xl md:text-5xl font-black text-amber-300 my-2">「------」</h2>
-                        <button onclick="redrawTopic()" class="bg-amber-900 hover:bg-amber-800 text-amber-300 border border-amber-500/50 font-bold px-4 py-2 rounded-xl text-xs transition inline-flex items-center gap-1.5 active:scale-95">
+                        <span class="text-xs font-bold text-sky-300 uppercase tracking-wider block">あなただけに見えているお題</span>
+                        <h2 id="presenterTopicDisplay" class="text-3xl md:text-5xl font-black text-sky-300 my-2">「------」</h2>
+                        <button onclick="redrawTopic()" class="bg-slate-900 hover:bg-slate-800 text-sky-300 border border-sky-500/50 font-bold px-4 py-2 rounded-xl text-xs transition inline-flex items-center gap-1.5 active:scale-95">
                             <i class="fa-solid fa-arrows-rotate"></i> お題を引き直す
                         </button>
                     </div>
 
                     <div class="max-w-md mx-auto space-y-3 pt-2">
-                        <label class="block text-sm font-bold text-amber-200">このお題に付けるオリジナルの名前を【カタカナ】で入力してください</label>
+                        <label class="block text-sm font-bold text-sky-200">このお題に付けるオリジナルの名前を【カタカナ】で入力してください</label>
                         <input type="text" id="declaredNameInput" maxlength="20" placeholder="例：ポルカ、ネコチャン、カゲノシハイシャ"
-                            class="w-full bg-amber-900 border border-amber-500/60 rounded-2xl px-5 py-4 text-amber-100 font-bold text-xl text-center focus:outline-none focus:border-amber-300 transition">
-                        <p class="text-xs text-amber-200 font-bold bg-amber-500/20 py-1.5 px-3 rounded-lg border border-amber-500/30">
+                            class="w-full bg-slate-900 border border-sky-500/60 rounded-2xl px-5 py-4 text-sky-100 font-bold text-xl text-center focus:outline-none focus:border-sky-300 transition">
+                        <p class="text-xs text-sky-200 font-bold bg-sky-500/20 py-1.5 px-3 rounded-lg border border-sky-500/30">
                             必ずカタカナで入力してください（漢字・ひらがな不可）
                         </p>
-                        <button onclick="submitDeclaredName()" class="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-amber-950 font-black text-lg py-4 rounded-2xl shadow-lg transition transform active:scale-95">
+                        <button onclick="submitDeclaredName()" class="w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 hover:from-sky-300 hover:to-indigo-500 text-white font-black text-lg py-4 rounded-2xl shadow-lg transition transform active:scale-95">
                             このカタカナ名でクイズを出題する！ 📣
                         </button>
                     </div>
@@ -256,26 +272,26 @@
                 <div id="answererNamingWaiting" class="hidden py-8 space-y-3">
                     <div class="text-5xl animate-bounce">🤔</div>
                     <h3 class="text-2xl font-black text-white">名づけ親がカタカナ名を考えています...</h3>
-                    <p class="text-xs text-amber-300/80">名づけ親が名前を発表するまで少々お待ちください。</p>
+                    <p class="text-xs text-sky-300/80">名づけ親が名前を発表するまで少々お待ちください。</p>
                 </div>
             </div>
 
             <!-- PHASE 2: クイズ＆投票フェーズ -->
             <div id="phaseVotingBox" class="hidden space-y-5">
-                <div class="glass-panel rounded-3xl p-6 text-center shadow-2xl border border-amber-500/40 bg-amber-950/80 space-y-3">
+                <div class="glass-panel rounded-3xl p-6 text-center shadow-2xl border border-sky-500/40 bg-slate-950/90 space-y-3">
                     <div class="flex justify-between items-center px-2">
-                        <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">PHASE 2: クイズ回答タイム</span>
-                        <span id="currentPresenterBadge2" class="text-xs font-bold text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/40">
+                        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">PHASE 2: クイズ回答タイム</span>
+                        <span id="currentPresenterBadge2" class="text-xs font-bold text-sky-300 bg-sky-500/20 px-3 py-1 rounded-full border border-sky-400/40">
                             名づけ親: ---
                         </span>
                     </div>
 
                     <div class="space-y-1">
-                        <span class="text-xs text-amber-300/90 font-bold">名づけ親がつけた名前</span>
-                        <h2 id="displayDeclaredName" class="text-3xl md:text-5xl font-black text-amber-300">「------」</h2>
+                        <span class="text-xs text-sky-300/90 font-bold">名づけ親がつけた名前</span>
+                        <h2 id="displayDeclaredName" class="text-3xl md:text-5xl font-black text-sky-300">「------」</h2>
                     </div>
 
-                    <p id="votingGuideText" class="text-xs text-amber-200 font-medium pt-2">
+                    <p id="votingGuideText" class="text-xs text-sky-200 font-medium pt-2">
                         以下の選択肢の中に本当のお題が1つだけ含まれています！正しいお題を選択してください。
                     </p>
                 </div>
@@ -283,78 +299,78 @@
                 <!-- お題選択肢カード一覧 (クイズ画面) -->
                 <div id="topicCandidatesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
 
-                <div id="votedWaitingNotice" class="hidden glass-panel p-4 rounded-2xl text-center border border-amber-500/40 text-amber-300 font-bold text-sm animate-pulse">
+                <div id="votedWaitingNotice" class="hidden glass-panel p-4 rounded-2xl text-center border border-sky-500/40 text-sky-300 font-bold text-sm animate-pulse">
                     投票を完了しました！全員の投票が終わるまでお待ちください...
                 </div>
             </div>
 
             <!-- PHASE 3: 結果発表フェーズ -->
-            <div id="phaseResultBox" class="hidden glass-panel rounded-3xl p-6 md:p-8 text-center shadow-2xl border border-amber-500/40 bg-amber-950/90 space-y-6">
+            <div id="phaseResultBox" class="hidden glass-panel rounded-3xl p-6 md:p-8 text-center shadow-2xl border border-sky-500/40 bg-slate-950/95 space-y-6">
                 <div class="space-y-2">
-                    <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">ROUND RESULT</span>
+                    <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">ROUND RESULT</span>
                     <h3 id="resultTitleText" class="text-3xl md:text-4xl font-black text-white">結果発表！</h3>
-                    <p id="resultDetailText" class="text-sm font-bold text-amber-200"></p>
+                    <p id="resultDetailText" class="text-sm font-bold text-sky-200"></p>
                 </div>
 
-                <div class="bg-amber-900/90 p-5 rounded-2xl border border-amber-500/40 space-y-3 text-left">
-                    <div class="flex justify-between items-center border-b border-amber-500/30 pb-2">
-                        <span class="text-xs font-bold text-amber-300 uppercase">正解のお題</span>
-                        <span id="resultRealTopic" class="text-lg font-black text-amber-300">---</span>
+                <div class="bg-slate-900 p-5 rounded-2xl border border-sky-500/40 space-y-3 text-left">
+                    <div class="flex justify-between items-center border-b border-sky-500/30 pb-2">
+                        <span class="text-xs font-bold text-sky-300 uppercase">正解のお題</span>
+                        <span id="resultRealTopic" class="text-lg font-black text-sky-300">---</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold text-amber-300 uppercase">付けられた名前</span>
-                        <span id="resultDeclaredName" class="text-lg font-black text-amber-200">---</span>
+                        <span class="text-xs font-bold text-sky-300 uppercase">付けられた名前</span>
+                        <span id="resultDeclaredName" class="text-lg font-black text-sky-200">---</span>
                     </div>
                 </div>
 
                 <!-- 各プレイヤーの投票結果リスト -->
                 <div class="space-y-2 text-left">
-                    <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider">全員の回答と獲得ポイント</h4>
+                    <h4 class="text-xs font-bold text-sky-300 uppercase tracking-wider">全員の回答と獲得ポイント</h4>
                     <div id="resultVotesList" class="space-y-2"></div>
                 </div>
 
                 <div id="nextRoundHostBox" class="hidden pt-3">
-                    <button onclick="nextRound()" class="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-amber-950 font-black text-xl py-5 rounded-2xl shadow-xl transition transform active:scale-95">
+                    <button onclick="nextRound()" class="w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 hover:from-sky-300 hover:to-indigo-500 text-white font-black text-xl py-5 rounded-2xl shadow-xl transition transform active:scale-95">
                         次のラウンドへ進む ➔
                     </button>
                 </div>
-                <p id="nextRoundWaitingMsg" class="hidden text-xs text-amber-300/80 animate-pulse">
+                <p id="nextRoundWaitingMsg" class="hidden text-xs text-sky-300/80 animate-pulse">
                     ホストが次のラウンドを開始するのを待っています...
                 </p>
             </div>
 
             <!-- Action Log -->
-            <div class="glass-panel p-4 rounded-3xl border border-amber-500/30 space-y-2">
-                <div class="border-b border-amber-500/30 pb-2">
-                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+            <div class="glass-panel p-4 rounded-3xl border border-sky-500/30 space-y-2">
+                <div class="border-b border-sky-500/30 pb-2">
+                    <span class="text-xs font-bold text-sky-300 uppercase tracking-wider flex items-center gap-1.5">
                         <i class="fa-solid fa-clock-rotate-left"></i> 対戦ログ
                     </span>
                 </div>
-                <div id="actionLogList" class="space-y-1 max-h-36 overflow-y-auto text-xs text-amber-100 font-medium pr-1"></div>
+                <div id="actionLogList" class="space-y-1 max-h-36 overflow-y-auto text-xs text-sky-100 font-medium pr-1"></div>
             </div>
         </div>
 
         <!-- VIEW 4: GAME OVER -->
-        <div id="viewGameOver" class="hidden glass-panel rounded-3xl p-8 md:p-10 shadow-2xl text-center space-y-6 max-w-2xl mx-auto w-full border border-amber-500/40">
+        <div id="viewGameOver" class="hidden glass-panel rounded-3xl p-8 md:p-10 shadow-2xl text-center space-y-6 max-w-2xl mx-auto w-full border border-sky-500/40">
             <div class="py-2 space-y-2">
-                <div class="w-20 h-20 rounded-3xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-4xl mx-auto mb-2 border border-amber-400/40 shadow-lg">
+                <div class="w-20 h-20 rounded-3xl bg-sky-500/20 text-sky-300 flex items-center justify-center text-4xl mx-auto mb-2 border border-sky-400/40 shadow-lg">
                     🏆
                 </div>
-                <h2 class="text-4xl font-black text-amber-300">ゲーム終了！</h2>
-                <p class="text-sm text-amber-200/80">目標ポイントに到達したプレイヤーが現れました！</p>
+                <h2 class="text-4xl font-black text-sky-300">ゲーム終了！</h2>
+                <p class="text-sm text-sky-200/80">目標ポイントに到達したプレイヤーが現れました！</p>
             </div>
 
-            <div class="space-y-3 bg-amber-950/90 p-5 rounded-3xl border border-amber-500/30 text-left">
-                <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider text-center">最終ランキング</h4>
+            <div class="space-y-3 bg-slate-950 p-5 rounded-3xl border border-sky-500/30 text-left">
+                <h4 class="text-xs font-bold text-sky-300 uppercase tracking-wider text-center">最終ランキング</h4>
                 <div id="finalScoreRanking" class="space-y-2"></div>
             </div>
 
             <div id="gameOverHostControls" class="hidden space-y-2 pt-2">
-                <button onclick="restartGame()" class="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-amber-950 font-black text-xl py-5 rounded-2xl shadow-xl transition transform active:scale-95">
+                <button onclick="restartGame()" class="w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 hover:from-sky-300 hover:to-indigo-500 text-white font-black text-xl py-5 rounded-2xl shadow-xl transition transform active:scale-95">
                     もう一度遊ぶ 🔄
                 </button>
             </div>
-            <p id="gameOverClientMsg" class="hidden text-sm text-amber-300/80 animate-pulse">
+            <p id="gameOverClientMsg" class="hidden text-sm text-sky-300/80 animate-pulse">
                 ホストが次のゲームを準備中です...
             </p>
         </div>
@@ -363,22 +379,128 @@
 
     <!-- NOTIFICATION MODAL -->
     <div id="actionNoticeModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm pointer-events-none">
-        <div class="glass-panel max-w-sm w-full rounded-3xl p-6 border-2 border-amber-400 shadow-2xl text-center animate-pop space-y-3 bg-amber-950">
+        <div class="glass-panel max-w-sm w-full rounded-3xl p-6 border-2 border-sky-400 shadow-2xl text-center animate-pop space-y-3 bg-slate-900">
             <div id="noticeIcon" class="text-4xl">📢</div>
             <h3 id="noticeTitle" class="text-xl font-black text-white">通知</h3>
-            <p id="noticeBody" class="text-sm font-bold text-amber-300">内容</p>
+            <p id="noticeBody" class="text-sm font-bold text-sky-300">内容</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="p-4 text-center text-xs text-amber-300/60 border-t border-amber-500/20">
+    <footer class="p-4 text-center text-xs text-sky-300/60 border-t border-sky-500/20">
         &copy; メイメイ Online
     </footer>
+
+    <!-- SCRIPT ENGINE -->
+    <script>
+        const PREFIX = "meimei-online-v1-";
+
+        // メイメイ専用お題リスト (500件以上)
+        const MEIMEI_TOPICS = [
+            "夜にだけ咲く幻の花", "魔法使いが乗る巨大な生き物", "しゃべる伝説の剣", "夢の中にしか現れないカフェ", 
+            "古代遺跡の最奥で眠る守護神", "星空を駆ける幻の列車", "願いを一つだけ叶える指輪", "海底に存在する謎の王国", 
+            "影の中に潜むいたずら妖精", "空に浮かぶ誰も行けない島", "一度読んだら忘れない魔導書", "時間を巻き戻す不思議な時計", 
+            "食べると体が軽くなるキノコ", "満月の夜に歌う鳥", "迷い込んだら抜け出せない森", "風を自在に操る扇子", 
+            "相手の心が読めるメガネ", "虹のふもとに隠された財宝", "永遠に燃え続ける炎", "飲んだら喋れなくなる薬草", 
+            "猫たちが夜な夜な集まる集会場", "太陽の欠片でできた宝石", "記憶を消し去る水滴", "雲の上に生える巨木", 
+            "異次元につながるドア", "暗闇を明るく照らす虫", "触ると固まる不思議な液体", "魂が宿った巨大な人形", 
+            "死者の声を届ける電話", "壁を通り抜けることができる服", "世界で一番美味しいスープの具材", "怒ると巨大化するリス", 
+            "未来の出来事が映る鏡", "音楽に合わせて踊る樹木", "氷でできた美しい城の女王", "雪の日にだけ現れる怪獣", 
+            "幸せを運ぶと言われる青い蝶", "何でも切り裂く透明な刃", "宇宙の果てにあると言われる温泉", "嘘をつくと光る石", 
+            "言葉を喋る古い大木", "乗ると目的地へ一瞬で届く靴", "開けると雨が降る缶詰", "頭に付けると空が飛べる帽子", 
+            "どんな傷も癒す聖なる水", "黄金色の毛を持つ幻の狐", "闇を飲み込むブラックホールの欠片", "触れると花を咲かせる杖", 
+            "夜空から落ちてきた小さな星", "世界中の知識が書かれた羊皮紙", "飼いネコの名前", "飼いイヌの名前", "飼いウサギの名前",
+            "飼いハムスターの名前", "飼いオウムの名前", "架空のロボットの名前", "架空のヒーローの名前", "架空の魔王の名前",
+            "架空の王国の名前", "架空の必殺技の名前", "架空の魔法の名前", "架空の惑星の名前", "架空の会社の名前",
+            "架空の学校の名前", "架空のバンドの名前", "架空のカフェの名前", "架空のスイーツの名前", "架空のスポーツの名前",
+            "架空のダンスの名前", "架空のボードゲームの名前", "架空のテーマパークの名前", "架空の文房具の名前", "架空の乗り物の名前",
+            "架空の兵器の名前", "架空のモンスターの名前", "架空の神様の名前", "架空の悪魔の名前", "架空の精霊の名前",
+            "架空のドラゴンの名前", "架空の忍者の名前", "架空の侍の名前", "架空の海賊の名前", "架空の探偵の名前",
+            "架空の怪盗の名前", "架空の宇宙人の名前", "架空のアイドルの名前", "架空のVTuberの名前", "架空のYoutuberの名前",
+            "架空の超能力の名前", "架空の格闘技の名前", "架空の通貨の名前", "架空の言語の名前", "架空の宗教の名前",
+            "架空のフェスティバルの名前", "架空の儀式の名前", "架空の予言の名前", "架空の呪いの名前", "架空の祝福の名前"
+        ];
+
+        let peer = null, myId = "", myName = "", roomCode = "";
+        let isHost = false;
+        let connections = {}; 
+        let hostConn = null;
+
+        let roomData = {
+            hostId: "",
+            status: 'LOBBY',
+            targetScore: 10,
+            dummyCount: 3,
+            presenterId: "",
+            realTopic: "",
+            declaredName: "",
+            candidateTopics: [],
+            votes: {},
+            players: {},
+            turnOrder: [],
+            turnIndex: 0,
+            logs: []
+        };
+
+        let soundEnabled = true;
+
+        // AUDIO ENGINE
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioCtx();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'tap') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'success') {
+                    [523.25, 659.25, 783.99].forEach((freq, i) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.type = 'sine';
+                        o.frequency.setValueAtTime(freq, now + i * 0.08);
+                        g.gain.setValueAtTime(0.12, now + i * 0.08);
+                        g.gain.exponentialRampToValueAtTime(0.01, now + i * 0.08 + 0.2);
+                        o.start(now + i * 0.08);
+                        o.stop(now + i * 0.08 + 0.2);
+                    });
+                } else if (type === 'victory') {
+                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.setValueAtTime(freq, now + i * 0.1);
+                        g.gain.setValueAtTime(0.15, now + i * 0.1);
+                        g.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.25);
+                        o.start(now + i * 0.1);
+                        o.stop(now + i * 0.1 + 0.25);
+                    });
+                }
+            } catch (e) {
+                console.warn("Audio exception:", e);
+            }
+        }
 
         function renderRoomState() {
             if (!roomData) return;
 
-            // ホスト判定（フラグ directly または ID一致）
             const isHostUser = isHost || (roomData.hostId === myId);
 
             document.getElementById('targetScoreDisplay').innerText = roomData.targetScore;
@@ -388,8 +510,8 @@
                 scoreListEl.innerHTML = '';
                 Object.values(roomData.players).forEach(p => {
                     const tag = document.createElement('div');
-                    tag.className = "bg-amber-950/90 px-4 py-2 rounded-2xl border border-amber-400/40 text-amber-50 font-black flex items-center gap-2 shadow-md";
-                    tag.innerHTML = `<span class="text-sm md:text-base">${escapeHtml(p.name)}:</span><span class="text-amber-300 text-lg md:text-xl font-black font-mono">${p.score || 0} <span class="text-xs font-normal text-amber-200">pt</span></span>`;
+                    tag.className = "bg-slate-950 px-4 py-2 rounded-2xl border border-sky-400/40 text-slate-100 font-black flex items-center gap-2 shadow-md";
+                    tag.innerHTML = `<span class="text-sm md:text-base">${escapeHtml(p.name)}:</span><span class="text-sky-300 text-lg md:text-xl font-black font-mono">${p.score || 0} <span class="text-xs font-normal text-sky-200">pt</span></span>`;
                     scoreListEl.appendChild(tag);
                 });
             }
@@ -417,15 +539,15 @@
 
                     playersArray.forEach(p => {
                         const div = document.createElement('div');
-                        div.className = "flex items-center justify-between bg-amber-950/80 border border-amber-500/30 p-4 rounded-2xl";
+                        div.className = "flex items-center justify-between bg-slate-950 border border-sky-500/30 p-4 rounded-2xl";
                         div.innerHTML = `
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-300 font-bold flex items-center justify-center text-base border border-amber-400/40">
+                                <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-300 font-bold flex items-center justify-center text-base border border-sky-400/40">
                                     ${escapeHtml(p.name.charAt(0))}
                                 </div>
-                                <span class="font-bold text-base text-amber-100">${escapeHtml(p.name)}</span>
+                                <span class="font-bold text-base text-slate-100">${escapeHtml(p.name)}</span>
                             </div>
-                            ${p.isHost ? '<span class="text-xs font-bold bg-amber-500/30 text-amber-200 px-3 py-1 rounded-full border border-amber-400/40">ホスト</span>' : ''}
+                            ${p.isHost ? '<span class="text-xs font-bold bg-sky-500/30 text-sky-200 px-3 py-1 rounded-full border border-sky-400/40">ホスト</span>' : ''}
                         `;
                         playerList.appendChild(div);
                     });
@@ -442,10 +564,10 @@
 
                 if (isPresenter) {
                     roleBadge.innerText = '🏷️ 名づけ親（あなた）';
-                    roleBadge.className = 'font-black text-lg text-amber-300 animate-pulse';
+                    roleBadge.className = 'font-black text-lg text-sky-300 animate-pulse';
                 } else {
                     roleBadge.innerText = '👂 回答者（子）';
-                    roleBadge.className = 'font-black text-lg text-yellow-200';
+                    roleBadge.className = 'font-black text-lg text-blue-200';
                 }
 
                 document.getElementById('phaseNamingBox').classList.remove('hidden');
@@ -477,10 +599,10 @@
 
                 if (isPresenter) {
                     roleBadge.innerText = '🏷️ 名づけ親';
-                    roleBadge.className = 'font-black text-lg text-amber-300';
+                    roleBadge.className = 'font-black text-lg text-sky-300';
                 } else {
                     roleBadge.innerText = '👂 回答者（子）';
-                    roleBadge.className = 'font-black text-lg text-yellow-200';
+                    roleBadge.className = 'font-black text-lg text-blue-200';
                 }
 
                 document.getElementById('phaseNamingBox').classList.add('hidden');
@@ -511,9 +633,9 @@
                         roomData.candidateTopics.forEach((topic, idx) => {
                             const btn = document.createElement('button');
                             btn.onclick = () => submitVote(idx);
-                            btn.className = "glass-panel bg-amber-950/90 hover:bg-amber-900 border-2 border-amber-500/40 hover:border-amber-300 p-5 rounded-2xl flex items-center justify-center transition transform active:scale-95 shadow-lg group";
+                            btn.className = "glass-panel bg-slate-950 hover:bg-slate-900 border-2 border-sky-500/40 hover:border-sky-300 p-5 rounded-2xl flex items-center justify-center transition transform active:scale-95 shadow-lg group";
                             btn.innerHTML = `
-                                <span class="font-black text-white text-lg md:text-xl group-hover:text-amber-300 transition">「${escapeHtml(topic)}」</span>
+                                <span class="font-black text-white text-lg md:text-xl group-hover:text-sky-300 transition">「${escapeHtml(topic)}」</span>
                             `;
                             gridEl.appendChild(btn);
                         });
@@ -545,15 +667,15 @@
                         const votedTopic = (votedIdx !== undefined && roomData.candidateTopics[votedIdx]) ? roomData.candidateTopics[votedIdx] : '未投票';
 
                         const div = document.createElement('div');
-                        div.className = `flex justify-between items-center p-3 rounded-xl border ${isCorrect ? 'bg-amber-500/20 border-amber-400' : 'bg-amber-950/80 border-amber-500/20'}`;
+                        div.className = `flex justify-between items-center p-3 rounded-xl border ${isCorrect ? 'bg-sky-500/20 border-sky-400' : 'bg-slate-900 border-sky-500/20'}`;
                         div.innerHTML = `
                             <div class="flex items-center space-x-2">
-                                <span class="font-bold text-amber-100">${escapeHtml(pObj.name)}</span>
-                                <span class="text-xs px-2 py-0.5 rounded ${isCorrect ? 'bg-amber-500 text-amber-950 font-black' : 'bg-slate-800 text-amber-300'}">
+                                <span class="font-bold text-slate-100">${escapeHtml(pObj.name)}</span>
+                                <span class="text-xs px-2 py-0.5 rounded ${isCorrect ? 'bg-sky-500 text-white font-black' : 'bg-slate-800 text-sky-300'}">
                                     ${isCorrect ? '正解！ +1pt' : '不正解'}
                                 </span>
                             </div>
-                            <span class="text-xs font-bold text-amber-200">回答: 「${escapeHtml(votedTopic)}」</span>
+                            <span class="text-xs font-bold text-sky-200">回答: 「${escapeHtml(votedTopic)}」</span>
                         `;
                         votesListEl.appendChild(div);
                     });
@@ -586,13 +708,13 @@
 
                     sortedPlayers.forEach((p, idx) => {
                         const row = document.createElement('div');
-                        row.className = `flex justify-between items-center p-4 rounded-2xl border ${idx === 0 ? 'bg-gradient-to-r from-amber-500/30 to-yellow-500/20 border-amber-400' : 'bg-amber-950/80 border-amber-500/20'}`;
+                        row.className = `flex justify-between items-center p-4 rounded-2xl border ${idx === 0 ? 'bg-gradient-to-r from-sky-500/30 to-blue-500/20 border-sky-400' : 'bg-slate-900 border-sky-500/20'}`;
                         row.innerHTML = `
                             <div class="flex items-center space-x-3">
-                                <span class="font-black text-lg ${idx === 0 ? 'text-amber-300' : 'text-amber-200'}">#${idx + 1}</span>
-                                <span class="font-bold text-amber-100">${escapeHtml(p.name)}</span>
+                                <span class="font-black text-lg ${idx === 0 ? 'text-sky-300' : 'text-sky-200'}">#${idx + 1}</span>
+                                <span class="font-bold text-slate-100">${escapeHtml(p.name)}</span>
                             </div>
-                            <span class="font-black text-xl text-amber-300">${p.score || 0} <span class="text-xs text-amber-200">pt</span></span>
+                            <span class="font-black text-xl text-sky-300">${p.score || 0} <span class="text-xs text-sky-200">pt</span></span>
                         `;
                         rankingEl.appendChild(row);
                     });
@@ -859,7 +981,6 @@
             playSound('success');
             roomData.declaredName = declaredName;
 
-            // ダミーカード（ハズレお題）を抽出し、お題カード候補を作成
             const dummyCount = roomData.dummyCount || 3;
             const candidates = [roomData.realTopic];
 
@@ -881,7 +1002,6 @@
             playSound('tap');
             roomData.votes[playerId] = topicIndex;
 
-            // 解答者（名づけ親以外）全員が投票したか判定
             const nonPresenters = Object.keys(roomData.players).filter(id => id !== roomData.presenterId);
             const votedCount = Object.keys(roomData.votes).length;
 
@@ -911,19 +1031,14 @@
             const presenter = roomData.players[roomData.presenterId];
             let presenterPoints = 0;
 
-            // 得点判定ロジック（メイメイ公式ルール）
             if (correctCount === 0 || wrongCount === 0) {
-                // 全員正解 または 全員不正解 ➔ 全員0点
                 addLog(`📢 【結果】${correctCount === 0 ? '全員ハズレ！' : '全員正解！'} (全員0pt)`);
             } else {
-                // 正解者・不正解者が両方いる ➔ 得点発生
-                // 正解者：1pt獲得
                 nonPresenters.forEach(id => {
                     if (roomData.votes[id] === realIndex) {
                         roomData.players[id].score = (roomData.players[id].score || 0) + 1;
                     }
                 });
-                // 親：不正解の人数分pt獲得
                 presenterPoints = wrongCount;
                 if (presenter) {
                     presenter.score = (presenter.score || 0) + presenterPoints;
@@ -935,7 +1050,6 @@
 
             roomData.status = 'ROUND_RESULT';
             checkGameEndConditions();
-            // 計算結果とステータス更新を全クライアントへ即時送信
             broadcastState();
         }
 
@@ -969,9 +1083,9 @@
             logList.innerHTML = '';
             roomData.logs.forEach((logText, idx) => {
                 const div = document.createElement('div');
-                div.className = `flex items-center gap-2 ${idx === 0 ? 'text-purple-300 font-bold' : 'text-purple-200/60'}`;
+                div.className = `flex items-center gap-2 ${idx === 0 ? 'text-sky-300 font-bold' : 'text-sky-200/60'}`;
                 div.innerHTML = `
-                    <span class="text-[10px] text-purple-500 font-mono">●</span>
+                    <span class="text-[10px] text-sky-500 font-mono">●</span>
                     <span>${escapeHtml(logText)}</span>
                 `;
                 logList.appendChild(div);
@@ -989,7 +1103,6 @@
                 return;
             }
 
-            // カタカナのみ（全角カタカナ、長音符号、スペース等含む）のチェックロジック
             const katakanaRegex = /^[\u30A0-\u30FF\u30FC\s]+$/;
             if (!katakanaRegex.test(nameVal)) {
                 alert("【警告】名前はすべてカタカナで入力してください！（漢字やひらがなは使用できません）");
@@ -1046,7 +1159,7 @@
             const icon = document.getElementById('soundIcon');
             if (icon) {
                 if (soundEnabled) icon.className = "fa-solid fa-volume-high";
-                else icon.className = "fa-solid fa-volume-xmark text-teal-400";
+                else icon.className = "fa-solid fa-volume-xmark text-sky-400";
             }
         };
 
